@@ -16,4 +16,10 @@ export class DashboardItemComponent {
   // @Input({ required: true }) title!: string;
   image = input.required<{ src: string; alt: string }>();
   title = input.required<string>();
+
+  // ngDoCheck(): void {
+  //   // throw new Error('Method not implemented.');
+  //   console.log("interval changed 2");
+  // }
+
 }
