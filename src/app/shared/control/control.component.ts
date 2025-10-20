@@ -1,4 +1,7 @@
 import {
+  AfterContentInit,
+  afterNextRender,
+  afterRender,
   Component,
   ContentChild,
   contentChild,
@@ -7,6 +10,7 @@ import {
   HostListener,
   inject,
   input,
+  OnInit,
   ViewEncapsulation,
 } from '@angular/core';
 
@@ -22,7 +26,22 @@ import {
     '(click)': 'onClick()',
   },
 })
-export class ControlComponent {
+export class ControlComponent implements AfterContentInit, OnInit {
+  constructor() {
+    // afterRender(() => {
+    //   console.log('afterRender');
+    // });
+    // afterNextRender(() => {
+    //   console.log('afternextRender');
+    // });
+  }
+
+  ngOnInit(): void {
+    // throw new Error('Method not implemented.');
+  }
+  ngAfterContentInit(): void {
+    // throw new Error('Method not implemented.');
+  }
   // @HostBinding('class') className = 'control';
   label = input.required<string>();
   private el = inject(ElementRef);

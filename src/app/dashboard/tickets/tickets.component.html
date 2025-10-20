@@ -3,8 +3,19 @@
     <img src="list.png" alt="A list of items" />
     <h2>Support Tickets</h2>
   </header> -->
+
+<div>
+  <ul>
+    @for(ticket of tickets; track ticket.id){
+    <!-- <li><app-ticket /> - {{ $first }}</li> -->
+    <li><app-ticket [data]="ticket" (close)="onCloseTicket(ticket.id)"/></li>
+    }@empty {
+    <p>No Tickets Available.</p>
+    }
+  </ul>
+</div>
 <div id="new-ticket">
   <!-- <p>Todo...</p> -->
-  <app-new-ticket />
+  <app-new-ticket (addTicket)="onAdd($event)" />
 </div>
 <!-- </article> -->
